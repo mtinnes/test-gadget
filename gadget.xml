@@ -39,7 +39,7 @@
   // This function is called after the gadget has been initialized.
   function onLoad() {
     
-    alert(prefs.getString('myExamplePref');
+    alert(prefs.getString('myExamplePref'));
   }
 
   gadgets.util.registerOnLoadHandler(onLoad);
