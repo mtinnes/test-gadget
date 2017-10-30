@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module> 
+<ModulePrefs title="Test Gadget" description="Test Desc" author="Mike" background="transparent">
+  <UserPref name="myExamplePref" display_name="Example preference" datatype="string" default_value="Hello World!" />
+  
+  <!-- The following preferences should not be modified -->
+  <UserPref name="ForeColor" datatype="hidden" />
+  <UserPref name="BackColor" datatype="hidden" />
+  <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
+  <UserPref name="rdH" display_name="Height" required="true" default_value="190" datatype="hidden" />
+  <UserPref name="rdKey" display_name="Device Registration Key" datatype="hidden" default_value="*|DEVICE.REGISTRATIONKEY|*" />
+</ModulePrefs>
+<Content type="html">
+<![CDATA[
+
+<style type="text/css">
+  body *
+  {
+    line-height: 1.2em; 
+    letter-spacing: 0; 
+    word-spacing: normal;
+  }
+
+  body
+  {
+    background: transparent;
+    width: __UP_rdW__px;
+    height: __UP_rdH__px;
+    overflow: hidden;
+  }
+</style>
+
+<div id="container">__UP_myExamplePref__</div> 
+
+<script type="text/javascript">
+
+  var prefs = new gadgets.Prefs();
+
+  // This function is called after the gadget has been initialized.
+  function onLoad() {
+    
+    alert(prefs.getString('myExamplePref');
+  }
+
+  gadgets.util.registerOnLoadHandler(onLoad);
+  
+</script>
+
+]]>
+</Content>
+</Module>
